@@ -1,0 +1,442 @@
+:root {
+  --opening-height: 56px; /* height of the top welcome bar */
+  --nav-height: 56px; /* fixed nav bar height */
+  --content-gap: 24px;
+  --max-width: 1100px;
+  --accent: #0b66ff;
+}
+
+/* ---------- Reset & base ---------- */
+* {
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial;
+  color: #222;
+  line-height: 1.45;
+  background: #fafafa;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* anchor offset so headings are not hidden by fixed nav */
+h1,
+h2,
+h3,
+.panel {
+  scroll-margin-top: calc(var(--opening-height) + var(--nav-height) + 12px);
+}
+
+/* ---------- Top banner & fixed nav ---------- */
+.opening-box {
+  height: var(--opening-height);
+  background: #111;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  z-index: 40;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+/* the fixed nav block below the opening box */
+.site-nav {
+  --pad: 16px;
+  position: fixed;
+  top: var(--opening-height);
+  left: 0;
+  right: 0;
+  height: var(--nav-height);
+  background: #fff;
+  border-bottom: 1px solid #ececec;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 18px rgba(10, 10, 10, 0.03);
+}
+
+.site-nav .nav-inner {
+  width: 100%;
+  max-width: var(--max-width);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 18px;
+  gap: 12px;
+}
+
+/* brand/logo on left */
+.site-nav .logo {
+  font-weight: 700;
+  text-decoration: none;
+  color: #111;
+  letter-spacing: 0.6px;
+}
+
+/* links on right */
+.nav-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 18px;
+  align-items: center;
+}
+
+.nav-links a {
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+  color: #333;
+  padding: 8px 10px;
+  border-radius: 6px;
+  font-weight: 500;
+  transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), color 0.2s ease;
+}
+
+/* Hover 3D lift + underline animation */
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 10%;
+  width: 80%;
+  height: 2px;
+  background: var(--accent);
+  border-radius: 2px;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.25s ease;
+}
+
+.nav-links a:hover,
+.nav-links a:focus {
+  color: var(--accent);
+  transform: translateY(-2px); /* increased from -2px → -5px */
+}
+
+.nav-links a:hover::after,
+.nav-links a:focus::after {
+  transform: scaleX(1); /* underline grows into view */
+}
+
+/* Make sure page content starts below opening + nav */
+.page {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: calc(var(--opening-height) + var(--nav-height) + var(--content-gap))
+    20px 80px;
+}
+
+/* ---------- Panels / Sections ---------- */
+.panel {
+  background: #fff;
+  border-radius: 10px;
+  padding: 22px;
+  margin-bottom: 60px;
+  box-shadow: 0 6px 20px rgba(12, 12, 12, 0.04);
+}
+
+/* ABOUT */
+.about-panel .lead {
+  margin-top: 0;
+  color: #444;
+  font-weight: 500;
+  font-size: 20px;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-top: 14px;
+  margin-bottom: 14px;
+}
+
+/* Two-column layout for About intro */
+.about-two-col {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr; /* text wider, image on right */
+  gap: 20px;
+  align-items: center;
+  margin-top: 6px;
+  margin-bottom: 24px;
+}
+
+.about-text {
+  margin-left: 25px;
+}
+
+#emoji-wave,
+#emoji-laptop {
+  font-size: 50px;
+}
+
+.about-me,
+.project-heading {
+  font-weight: 700;
+  font-size: 48px;
+  background: linear-gradient(
+    90deg,
+    #003cff,
+    /* deep royal blue */ #008cff,
+    /* bright cyan-blue */ #00b7ff,
+    /* sky blue */ #0091ff,
+    /* vibrant mid-blue */ #003cff
+  ); /* back to royal blue */
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent; /* show gradient instead of solid color */
+  animation: blueFlow 5s linear infinite;
+  margin-right: 10px;
+}
+
+/* animation for moving gradient */
+@keyframes blueFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* optional: accessibility preference */
+@media (prefers-reduced-motion: reduce) {
+  .about-me,
+  .project-heading {
+    animation: none;
+    background-size: 100% 100%;
+  }
+}
+
+/* Keep your existing .about-panel .lead style */
+.about-photo {
+  margin: 0;
+}
+.about-photo img {
+  width: 80%;
+  height: auto;
+  border-radius: 10px;
+  object-fit: cover;
+  display: block;
+  box-shadow: 0 10px 18px rgba(0, 0, 0, 0.08);
+  margin-left: 60px;
+}
+
+/* Stack on small screens */
+@media (max-width: 900px) {
+  .about-two-col {
+    grid-template-columns: 1fr;
+  }
+  .about-photo {
+    order: 2; /* image below text on mobile */
+    width: 80%;
+    max-width: 500px;
+    display: block;
+    justify-self: center; /* centers horizontally in the single column */
+  }
+}
+
+.skills {
+  font-weight: bold;
+  font-style: italic;
+}
+
+.card {
+  background: #fff;
+  border: 1px solid #f0f0f0;
+  border-radius: 8px;
+  padding: 12px;
+  padding-left: 20px;
+  transition: transform 0.15s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.2s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  transition: background 0.3s ease;
+}
+
+.card:hover {
+  background: black;
+  border-radius: 8px;
+  color: white;
+  transform: translateY(-5px); /* lifts upward */
+  box-shadow: 0 15px 15px rgba(0, 0, 0, 0.12); /* deeper shadow */
+}
+
+.card:hover a {
+  color: white;
+}
+
+/* achievements */
+
+.achievement-box {
+  grid-column: 1 / 2;
+  background: white;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.selected-achievement {
+  margin: 0;
+  margin-bottom: 15px;
+}
+
+.achievements {
+  margin: 5px 0 0 0px;
+}
+
+/* ---------- Videos / Projects ---------- */
+.panel .youtube-channel-intro {
+  margin-top: 0;
+  color: #444;
+  font-weight: 500;
+}
+
+.video-list {
+  display: grid;
+  gap: 18px;
+  margin-top: 0px;
+}
+
+.video-card h3 {
+  margin: 0 0 8px 0;
+  font-size: 20px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.title {
+  font-size: 28px !important;
+  font-weight: 700;
+  background: linear-gradient(
+    90deg,
+    #8a0000,
+    /* dark red */ #b3541e,
+    /* bronze */ #c7a008,
+    /* muted gold */ #b3541e,
+    #8a0000
+  );
+
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent; /* show the gradient */
+  animation: slide-grad 6s linear infinite;
+}
+
+/* animation that shifts the gradient */
+@keyframes slide-grad {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .title {
+    animation: none;
+    background-size: 100% 100%;
+  }
+}
+
+/* responsive video */
+.video-wrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 */
+  background: #000;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.video-wrapper iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* contact */
+.contact-panel p {
+  margin: 8px 0;
+  font-size: 19px;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+  .site-nav .nav-inner {
+    padding: 0 12px;
+    gap: 8px;
+  }
+
+  .site-nav .logo {
+    font-size: 15px;
+  }
+  .page {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+}
+
+@media (max-width: 900px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+  .site-nav .nav-inner {
+    padding: 0 12px;
+    gap: 8px;
+  }
+  /* .nav-links { display: none; }  ← REMOVE or comment this line */
+  .site-nav .logo {
+    font-size: 15px;
+  }
+  .page {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+}
+
+.nav-links a {
+  font-size: clamp(12px, 1.8vw, 15px);
+  padding: 6px 8px;
+}
+
+@media (min-width: 901px) and (max-width: 1200px) {
+  .about-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Accessibility focus */
+a:focus {
+  outline: 3px solid rgba(11, 102, 255, 0.14);
+  outline-offset: 3px;
+}
