@@ -184,12 +184,11 @@ h3,
 .about-photo img {
   width: 80%;
   height: auto;
-  display: block;
   border-radius: 10px;
   object-fit: cover;
-  /* optional subtle shadow */
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
-  justify-self: end;
+  display: block;
+  box-shadow: 0 10px 18px rgba(0, 0, 0, 0.08);
+  margin-left: 60px;
 }
 
 /* Stack on small screens */
@@ -199,7 +198,16 @@ h3,
   }
   .about-photo {
     order: 2; /* image below text on mobile */
+    width: 80%;
+    max-width: 500px;
+    display: block;
+    justify-self: center; /* centers horizontally in the single column */
   }
+}
+
+.skills {
+  font-weight: bold;
+  font-style: italic;
 }
 
 .card {
@@ -346,3 +354,4 @@ a:focus {
   outline: 3px solid rgba(11, 102, 255, 0.14);
   outline-offset: 3px;
 }
+
