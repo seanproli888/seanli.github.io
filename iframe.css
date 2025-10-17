@@ -269,6 +269,7 @@ h3,
   padding-left: 20px;
   padding-right: 13px;
   border: 0.1px solid #eee;
+  font-size: 18px;
 }
 
 /* smoother hover: longer transform + softer easing + softer shadow change */
@@ -327,6 +328,7 @@ h3,
   margin-top: 0;
   color: white;
   font-weight: 500;
+  font-size: 18px;
 }
 
 .video-list {
