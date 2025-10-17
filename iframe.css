@@ -169,6 +169,7 @@ h3,
 
 #emoji-downward {
   font-size: 40px;
+  margin-left: 20px;
 }
 
 #emoji-laptop {
@@ -471,7 +472,8 @@ a:focus {
 
 .contact-text {
   text-align: center;
-  margin-left: 12px;
+  margin-left: 20px;
+  margin-top: 10px;
 }
 
 .social-buttons {
