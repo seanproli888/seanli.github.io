@@ -106,7 +106,7 @@ h3,
 .nav-links a:hover,
 .nav-links a:focus {
   color: var(--accent);
-  transform: translateY(-2px); /* increased from -2px → -5px */
+  transform: translateY(-1.5px); /* increased from -2px → -5px */
 }
 
 .nav-links a:hover::after,
@@ -260,7 +260,9 @@ h3,
   position: relative;
   margin-bottom: 16px;
   border-radius: 8px;
-  transition: background-color 250ms ease, color 250ms ease;
+  transition: transform 420ms cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 520ms cubic-bezier(0.22, 1, 0.36, 1), background-color 360ms ease,
+    color 360ms ease;
   will-change: transform, box-shadow, background-color;
   /* initial subtle shadow */
   padding-left: 20px;
@@ -275,9 +277,6 @@ h3,
   transform: translate3d(0, -8px, 0); /* GPU friendly */
   box-shadow: 0 18px 30px rgba(0, 0, 0, 0.18); /* larger, softer shadow */
   z-index: 1;
-  transition: transform 420ms cubic-bezier(0.22, 1, 0.36, 1),
-    box-shadow 520ms cubic-bezier(0.22, 1, 0.36, 1), background-color 240ms ease,
-    color 240ms ease;
 }
 
 /* anti-flicker helpers */
