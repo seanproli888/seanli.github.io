@@ -169,12 +169,12 @@ h3,
 }
 
 #emoji-downward {
-  font-size: 40px;
+  font-size: clamp(1.9rem, 2vw + 1rem, 40px);
   margin-left: 20px;
 }
 
 #emoji-laptop {
-  font-size: 33px;
+  font-size: clamp(1.9rem, 2vw + 1rem, 40px);
 }
 
 .about-me,
