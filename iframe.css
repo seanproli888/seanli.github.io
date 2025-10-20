@@ -1,4 +1,23 @@
-:root {
+.title {
+  font-size: clamp(1.25rem, calc(1.5vw + 0.5rem), 1.75rem);
+  font-weight: 700;
+  background: linear-gradient(
+    90deg,
+    #10b981,
+    #22c55e,
+    #84cc16,
+    #4ade80,
+    #10b981
+  );
+  font-weight: 700;
+  background: linear-gradient(
+    90deg,
+    #10b981,
+    #22c55e,
+    #84cc16,
+    #4ade80,
+    #10b981
+  ):root {
   --opening-height: 56px; /* height of the top welcome bar */
   --nav-height: 56px; /* fixed nav bar height */
   --content-gap: 24px;
