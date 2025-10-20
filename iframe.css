@@ -173,10 +173,6 @@ h3,
   margin-left: 20px;
 }
 
-#emoji-laptop {
-  font-size: clamp(1.9rem, 2vw + 1rem, 40px);
-}
-
 .about-me,
 .youtube-heading,
 .contact-text {
@@ -340,7 +336,7 @@ h3,
 }
 
 .title {
-  font-size: clamp(19px, calc(1vw + 0.5rem), 28px);
+  font-size: clamp(17px, calc(1vw + 0.5rem), 28px);
   font-weight: 700;
   background: linear-gradient(
     90deg,
