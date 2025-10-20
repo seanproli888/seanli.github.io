@@ -89,17 +89,18 @@ h3,
 }
 
 /* Hover 3D lift + underline animation */
+/* use CSS variables with sensible fallbacks */
 .nav-links a::after {
   content: "";
   position: absolute;
   bottom: -4px;
-  left: 10%;
-  width: 80%;
+  left: var(--u-left, 10%); /* default left offset */
+  width: var(--u-width, 80%); /* default width (percentage of link) */
   height: 2px;
   background: var(--accent);
   border-radius: 2px;
   transform: scaleX(0);
-  transform-origin: center;
+  transform-origin: var(--u-origin, center); /* control reveal direction */
   transition: transform 0.25s ease;
 }
 
@@ -177,7 +178,7 @@ h3,
 }
 
 .about-me,
-.project-heading,
+.youtube-heading,
 .contact-text {
   font-weight: 700;
   font-size: 48px;
@@ -197,7 +198,7 @@ h3,
   margin-right: 10px;
 }
 
-.project-heading,
+.youtube-heading,
 .contact-text {
   font-size: 40px;
 }
@@ -218,7 +219,7 @@ h3,
 /* optional: accessibility preference */
 @media (prefers-reduced-motion: reduce) {
   .about-me,
-  .project-heading {
+  .youtube-heading {
     animation: none;
     background-size: 100% 100%;
   }
@@ -320,7 +321,7 @@ h3,
 
 /* ---------- Videos / Projects ---------- */
 
-#projects {
+#Youtube-Channel {
   margin-top: 80px;
 }
 
