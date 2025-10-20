@@ -165,7 +165,7 @@ h3,
 }
 
 #emoji-wave {
-  font-size: clamp(1.5rem, 2vw + 1rem, 50px);
+  font-size: clamp(1.9rem, 2vw + 1rem, 50px);
 }
 
 #emoji-downward {
@@ -181,7 +181,7 @@ h3,
 .youtube-heading,
 .contact-text {
   font-weight: 700;
-  font-size: clamp(1.5rem, calc(2vw + 1rem), 3rem);
+  font-size: clamp(1.8rem, calc(2vw + 1rem), 3rem);
   background: linear-gradient(
     90deg,
     #003cff,
@@ -324,7 +324,7 @@ h3,
   margin-top: 0;
   color: white;
   font-weight: 500;
-  font-size: clamp(15px, calc(1vw + 0.5rem), 18px);
+  font-size: clamp(16px, calc(1vw + 0.5rem), 18px);
 }
 
 .video-list {
@@ -340,7 +340,7 @@ h3,
 }
 
 .title {
-  font-size: clamp(20px, calc(1vw + 0.5rem), 28px);
+  font-size: clamp(19px, calc(1vw + 0.5rem), 28px);
   font-weight: 700;
   background: linear-gradient(
     90deg,
