@@ -228,9 +228,19 @@ h3,
   display: block;
   box-shadow: 0 10px 18px rgba(0, 0, 0, 0.08);
   margin-left: 35px;
-  box-shadow: 5px 4px 24px rgba(255, 199, 29, 0.18),
-    10px 8px 48px rgba(255, 199, 29, 0.18);
+  box-shadow: 4px 4px 24px rgba(255, 191, 0, 0.18),
+    8px 8px 48px rgba(255, 191, 0, 0.18);
 }
+
+/* ... existing code ... */
+@media (max-width: 900px) {
+  /* ... existing code ... */
+  .about-photo img {
+    margin: 0 auto;
+    width: 100%;
+  }
+}
+/* ... existing code ... */
 
 /* Stack on small screens */
 @media (max-width: 900px) {
@@ -415,8 +425,8 @@ h3,
   background: #000;
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: 8px 5px 24px rgba(255, 255, 255, 0.22),
-    16px 10px 48px rgba(255, 255, 255, 0.12);
+  box-shadow: 8px 7px 24px rgba(255, 255, 255, 0.22),
+    16px 14px 48px rgba(255, 255, 255, 0.12);
 }
 .video-wrapper iframe {
   position: absolute;
@@ -538,7 +548,7 @@ a:focus {
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease,
     background-color 0.3s ease, filter 0.3s ease;
-  margin-left: 15px;
+  /* Deleted: margin-left: 15px; */
 }
 
 /* LinkedIn button */
@@ -587,3 +597,4 @@ a:focus {
 .social-btn i {
   font-size: 18px;
 }
+
