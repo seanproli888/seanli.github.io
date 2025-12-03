@@ -9,6 +9,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     />
+    <script src="animation.js"></script>
     <link rel="icon" href="image.png" type="image/png" sizes="16x16" />
   </head>
   <body>
@@ -65,71 +66,84 @@
         </div>
 
         <div class="about-grid">
-          <div class="card">
-            <img src="pexels-thisisengineering-3861972.jpg" />
-            <h3><span class="selected-achievement">Skills</span> 💡</h3>
+          <!-- Row 1: Image left, Content right -->
+          <div class="zigzag-row scroll-animate">
+            <div class="zigzag-image">
+              <img src="pexels-thisisengineering-3861972.jpg" alt="Skills" />
+            </div>
+            <div class="zigzag-content">
+              <h3><span class="selected-achievement">Skills</span> 💡</h3>
 
-            <p>
-              <span class="skills">Technical Skills</span>: HTML · CSS ·
-              Microsoft Word, Powerpoint & Excel
-            </p>
-            <p>
-              <span class="skills">Content Creation</span>: Video Editing ·
-              Designing IG Posts
-            </p>
-            <p>
-              <span class="skills">Business & Analytical Skills</span>: Business
-              Strategy · Economics · Financial Analysis
-            </p>
+              <p>
+                <span class="skills">Technical Skills</span>: HTML · CSS ·
+                Microsoft Word, Powerpoint & Excel
+              </p>
+              <p>
+                <span class="skills">Content Creation</span>: Video Editing ·
+                Designing IG Posts
+              </p>
+              <p>
+                <span class="skills">Business & Analytical Skills</span>:
+                Business Strategy · Economics · Financial Analysis
+              </p>
+            </div>
           </div>
 
-          <div class="card">
-            <img
-              src="pexels-rafael-cosquiere-1059286-2041540.jpg"
-              alt="Two empty leather armchairs set in a narrow curved library aisle flanked by tall wooden bookshelves packed with books; warm overhead lighting creates a cozy, quiet, contemplative reading space."
-            />
-            <h3><span class="selected-achievement">Education</span> 📚</h3>
+          <!-- Row 2: Content left, Image right -->
+          <div class="zigzag-row zigzag-reverse scroll-animate">
+            <div class="zigzag-content">
+              <h3><span class="selected-achievement">Education</span> 📚</h3>
 
-            <p>CUHK — BBA–JD Double Degree (2025– )</p>
-            <p>Diocesan Boys’ School (2021–2025)</p>
-            <p>G.T. (Ellen Yeung) College (2013–2020)</p>
+              <p>CUHK — BBA–JD Double Degree (2025– )</p>
+              <p>Diocesan Boys' School (2021–2025)</p>
+              <p>G.T. (Ellen Yeung) College (2013–2020)</p>
+            </div>
+            <div class="zigzag-image">
+              <img
+                src="pexels-rafael-cosquiere-1059286-2041540.jpg"
+                alt="Two empty leather armchairs set in a narrow curved library aisle flanked by tall wooden bookshelves packed with books; warm overhead lighting creates a cozy, quiet, contemplative reading space."
+              />
+            </div>
           </div>
-
-          <div class="card">
-            <img src="shutterstock_2495503711-1024x597.jpg" />
-            <h3><span class="selected-achievement">Interests</span> 🌍</h3>
-
-            <p>Economics · Finance · Business · AI · Coding</p>
+          <!-- Row 3: Image left, Achievements right -->
+          <div class="zigzag-row scroll-animate">
+            <div class="zigzag-image">
+              <!-- Suggested achievement image; replace with actual file name you add to project (e.g., achievements.jpg) -->
+              <img
+                src="pexels-cottonbro-6565255.jpg"
+                alt="Gold trophy symbolizing achievement and excellence"
+              />
+            </div>
+            <div class="zigzag-content achievements-content">
+              <h3>
+                <span class="selected-achievement">Selected achievements</span>
+                🏆
+              </h3>
+              <div class="achievements-list">
+                <p class="achievement-item">
+                  World Economics Cup 2024 — Highest Distinction; Top 10 Scorer;
+                  Individual & Team Gold
+                </p>
+                <p class="achievement-item">
+                  International Economics Olympiad (Winter Challenge) 2023 &
+                  2024 — Silver Medalist
+                </p>
+                <p class="achievement-item">
+                  Hong Kong Economics Olympiad — Gold Award; Outstanding
+                  Business Case Award
+                </p>
+                <p class="achievement-item">
+                  University of Pennsylvania’s PennSEM Business Case Competition
+                  — Semi-finalist (Global Top 16)
+                </p>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="achievement-box card">
-          <h3>
-            <span class="selected-achievement">Selected achievements</span> 🏆
-          </h3>
-
-          <ul class="achievements">
-            <li>
-              World Economics Cup 2024 — Highest Distinction; Top 10 Scorer;
-              Individual & Team Gold
-            </li>
-            <li>
-              International Economics Olympiad (Winter Challenge) 2023 & 2024 —
-              Silver Medalist
-            </li>
-            <li>
-              Hong Kong Economics Olympiad — Gold Award; Outstanding Business
-              Case Award
-            </li>
-            <li>
-              University of Pennsylvania’s PennSEM Business Case Competition —
-              Semi-finalist (Global Top 16)
-            </li>
-          </ul>
         </div>
       </section>
 
       <!-- Youtube Channel -->
-      <section id="Youtube-Channel" class="panel">
+      <section id="Youtube-Channel" class="panel scroll-animate">
         <h2>
           <span class="youtube-heading">Youtube Channel</span>
         </h2>
@@ -141,7 +155,7 @@
           analyze, and start forming your own insights.
         </p>
         <div class="video-list">
-          <article class="video-card">
+          <article class="video-card scroll-animate">
             <h3 class="title">
               1. Learn to Keep People Dependent on You — The 48 Laws of Power
             </h3>
@@ -156,7 +170,7 @@
             </div>
           </article>
 
-          <article class="video-card">
+          <article class="video-card scroll-animate">
             <h3 class="title">
               2. How to gain an Edge in Negotiations, Relationships, or Personal
               Pursuits? The 48 Laws of Power
@@ -175,7 +189,7 @@
             </div>
           </article>
 
-          <article class="video-card">
+          <article class="video-card scroll-animate">
             <h3 class="title">
               3. Why Nations Fail: Key Definitions and Core Ideas
             </h3>
@@ -190,7 +204,7 @@
             </div>
           </article>
 
-          <article class="video-card">
+          <article class="video-card scroll-animate">
             <h3 class="title">
               4. Underlying Causes of Global Inequality - Forget Geography,
               Culture and Ignorance (Why Nations Fail)
@@ -212,7 +226,7 @@
       </section>
 
       <!-- Follow -->
-      <section id="contact" class="panel contact-panel">
+      <section id="contact" class="panel contact-panel scroll-animate">
         <h2 id="follow-me">
           <span id="emoji-downward">🙌</span
           ><span class="contact-text"> Follow Me </span>
