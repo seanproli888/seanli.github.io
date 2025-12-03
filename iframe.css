@@ -223,17 +223,6 @@ h3,
     8px 8px 48px rgba(255, 191, 0, 0.18);
 }
 
-/* ... existing code ... */
-@media (max-width: 900px) {
-  /* ... existing code ... */
-  .about-photo img {
-    margin: 0 auto;
-    width: 100%;
-  }
-}
-/* ... existing code ... */
-
-/* Stack on small screens */
 @media (max-width: 900px) {
   .about-two-col {
     grid-template-columns: 1fr;
@@ -248,11 +237,106 @@ h3,
 }
 
 .about-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 120px; /* <--- Increased from 80px */
   margin-top: 80px;
   margin-bottom: 14px;
+}
+
+/* ---------- Zigzag rows (improved alignment + larger fonts) ---------- */
+.zigzag-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+  grid-template-areas: "img content"; /* default: image left, content right */
+}
+
+/* reverse: content left, image right */
+.zigzag-row.zigzag-reverse {
+  grid-template-areas: "content img";
+}
+
+/* assign areas */
+.zigzag-row > .zigzag-image {
+  grid-area: img;
+}
+.zigzag-row > .zigzag-content {
+  grid-area: content;
+  text-align: left; /* ensure left alignment for all text */
+  padding-left: 20px; /* Added this line */
+}
+/* For Skills/Achievements (text on right): 
+   Adds padding on the LEFT to push text to the right. */
+.zigzag-row:not(.zigzag-reverse) > .zigzag-content {
+  padding-left: 40px;
+}
+
+/* For Education (text on left): 
+   Adds padding on the RIGHT to prevent text from hitting the image. */
+.zigzag-row.zigzag-reverse > .zigzag-content {
+  padding-right: 40px;
+}
+/* Image styling */
+.zigzag-image img {
+  width: 90%; /* Reduced from 100% to make it narrower than its container */
+  height: clamp(
+    180px,
+    25vw,
+    300px
+  ); /* Reduced height values (e.g., from 220/30/350 to 180/25/300) */
+  /* ... other styles ... */
+  border-radius: 12px;
+  object-fit: cover;
+  box-shadow: 0 10px 30px rgba(255, 255, 255, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Aligns the 90% wide image in the reversed row (Library/Education) 
+   to the right edge of its grid column to match the About Me photo's alignment. */
+.zigzag-row.zigzag-reverse > .zigzag-image img {
+  margin-left: 50px;
+}
+
+/* Title and text alignment fix */
+.zigzag-content h3 {
+  margin-top: 0;
+  margin-bottom: 16px;
+  font-size: clamp(1.3rem, 2vw + 0.7rem, 1.8rem);
+  line-height: 1.2;
+  text-align: left; /* force left alignment */
+}
+
+.zigzag-content p {
+  margin-bottom: 12px; /* Reduced for less gap */
+  line-height: 1.6; /* Reduced for less vertical gap */
+  font-size: clamp(1rem, 1.3vw + 0.35rem, 1.15rem); /* Reduced size */
+  text-align: left;
+}
+
+/* emphasize skill labels */
+.skills {
+  font-weight: 700;
+  font-style: italic;
+  font-size: clamp(0.9rem, 0.9vw + 0.35rem, 1.1rem); /* Reduced size */
+  text-align: left;
+}
+
+/* responsive stacking on mobile */
+@media (max-width: 900px) {
+  .zigzag-row,
+  .zigzag-row.zigzag-reverse {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "img"
+      "content";
+    gap: 20px;
+  }
+
+  .zigzag-image img {
+    height: clamp(220px, 40vw, 320px);
+  }
 }
 
 .skills {
@@ -326,9 +410,6 @@ h3,
 
 .selected-achievement {
   margin: 0;
-  margin-bottom: 15px;
-  margin-left: 20px;
-  margin-right: 13px;
   background: linear-gradient(
     90deg,
     #ffe135,
@@ -453,9 +534,6 @@ h3,
 
 /* ---------- Responsive ---------- */
 @media (max-width: 900px) {
-  .about-grid {
-    grid-template-columns: 1fr;
-  }
   .site-nav .nav-inner {
     padding: 0 12px;
     gap: 8px;
@@ -471,9 +549,6 @@ h3,
 }
 
 @media (max-width: 900px) {
-  .about-grid {
-    grid-template-columns: 1fr;
-  }
   .site-nav .nav-inner {
     padding: 0 12px;
     gap: 8px;
@@ -491,12 +566,6 @@ h3,
 .nav-links a {
   font-size: clamp(12px, 1.8vw, 15px);
   padding: 6px 8px;
-}
-
-@media (min-width: 901px) and (max-width: 1200px) {
-  .about-grid {
-    grid-template-columns: 1fr 1fr;
-  }
 }
 
 /* Accessibility focus */
@@ -606,4 +675,22 @@ a:focus {
 /* Optional: make icons slightly larger */
 .social-btn i {
   font-size: 18px;
+}
+
+/* Optional: make icons slightly larger */
+.social-btn i {
+  font-size: 1.2em;
+}
+
+/* --- Scroll Animation --- */
+.scroll-animate {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.5s ease-out;
+  will-change: opacity, transform;
+}
+
+.scroll-animate.is-visible {
+  opacity: 1;
+  transform: translateY(0);
 }
